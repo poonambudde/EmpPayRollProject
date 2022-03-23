@@ -11,11 +11,13 @@ create table employee_payroll
   startDate date
 )
 
---UC3 - Create employee_payroll data as part of CURD Operation
+--UC3 - inserting values to table
 insert into employee_payroll (nameofStudent, Salary, StartDate) values
 ('Poonam', 40000.00, '22-Mar-2022'),
 ('Dhoni', 70000.00, '17-June-2007'),
 ('Virat', 50000.00, '18-May-2010'),
 ('Rohit', 60000.00, '09-Jan-2009');
 
+--UC4 - Retrieve employee_payroll data
 select * from employee_payroll
+
