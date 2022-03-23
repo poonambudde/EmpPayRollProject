@@ -17,5 +17,3 @@ insert into employee_payroll (nameofStudent, Salary, StartDate) values
 ('Dhoni', 70000.00, '17-June-2007'),
 ('Virat', 50000.00, '18-May-2010'),
 ('Rohit', 60000.00, '09-Jan-2009');
-
-select * from employee_payroll
