@@ -35,15 +35,31 @@ update employee_payroll set salary = 300000.00 where nameofStudent = 'Terisa';
 --UC7 - find sum, average, min, max and number of male and female employees.
 select Sum(salary)  as "TotalSalaryofMales" from employee_payroll where gender = 'M' group by gender;
 select Sum(salary)  as "TotalSalaryofFemale" from employee_payroll where gender = 'F' group by gender;
-select Sum(salary) as "TotalSalary",Gender from employee_payroll group by Gender;
-select Avg(salary) as "AverageSalary",Gender from employee_payroll group by Gender;
-select Min(salary) as "MinimumSalary",Gender from employee_payroll group by Gender;
-select Max(salary) as "MaximumSalary",Gender from employee_payroll group by Gender;
-select count(salary) as "NumberofMales&Females",Gender from employee_payroll group by Gender;
+select Sum(salary) as "TotalSalary", Gender from employee_payroll group by Gender;
+select Avg(salary) as "AverageSalary", Gender from employee_payroll group by Gender;
+select Min(salary) as "MinimumSalary", Gender from employee_payroll group by Gender;
+select Max(salary) as "MaximumSalary", Gender from employee_payroll group by Gender;
+select count(salary) as "NumberofMales&Females", Gender from employee_payroll group by Gender;
 
---UC8-- add employee phone, department(not null), Address (using default values)
+--UC8 - add employee PhoneNo, department(not null), Address (using default values).
 select * from employee_payroll;
 alter table employee_payroll add PhoneNo bigint;
 update employee_payroll set PhoneNo = 9234569874 where id = 1;
 alter table employee_payroll add Address varchar(100) not null default 'Bangalore';
 alter table employee_payroll add Department varchar(250) not null default 'IT';
+
+--UC9 - Extend table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay.
+Alter table employee_payroll
+add Deduction float,TaxablePay float, IncomeTax float,NetPay float;
+
+select *from employee_payroll;
+Update employee_payroll set Deduction = 1000 where Gender = 'F';
+Update employee_payroll set Deduction = 1000 where Gender = 'M';
+Alter table employee_payroll
+add basicpay float;
+Update employee_payroll set basicpay = 5000 where Gender = 'M';
+Update employee_payroll set basicpay = 8000 where Gender = 'F';
+
+update employee_payroll set NetPay = (basicPay - Deduction)
+update employee_payroll set TaxablePay = 0, IncomeTax = 0
+select * from employee_payroll;
