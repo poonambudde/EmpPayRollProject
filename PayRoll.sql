@@ -50,16 +50,12 @@ alter table employee_payroll add Department varchar(250) not null default 'IT';
 
 --UC9 - Extend table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay.
 Alter table employee_payroll
-add Deduction float,TaxablePay float, IncomeTax float,NetPay float;
-
+add basicpay float, Deduction float, TaxablePay float, IncomeTax float, NetPay float;
 select *from employee_payroll;
 Update employee_payroll set Deduction = 1000 where Gender = 'F';
 Update employee_payroll set Deduction = 1000 where Gender = 'M';
-Alter table employee_payroll
-add basicpay float;
 Update employee_payroll set basicpay = 5000 where Gender = 'M';
 Update employee_payroll set basicpay = 8000 where Gender = 'F';
-
 update employee_payroll set NetPay = (basicPay - Deduction)
 update employee_payroll set TaxablePay = 0, IncomeTax = 0
-select * from employee_payroll;
+select * from employee_payroll; 
