@@ -126,9 +126,9 @@ foreign key(payroll_id) references payroll(payroll_Id)
 )
 --inserted data into employee table
 insert into employee values
-(1,'Rupali','F','latur',3939390910,'2020-10-2',301,201,300000),
-(2,'Akash','M','pune',3939690910,'2019-10-2',302,202,40000),
-(3,'Deepali','F','amrvati',3959390910,'2020-10-2',301,203,600000);
+(1,'Poonam','F','latur',3939390910,'2020-10-2',301,201,300000),
+(2,'Ruhi','M','pune',3939690910,'2019-10-2',302,202,40000),
+(3,'Diksha','F','amrvati',3959390910,'2020-10-2',301,203,600000);
 select * from employee;
 
 --creating employee department table
